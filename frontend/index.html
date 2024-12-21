@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>this is the head of the breaking bottle chapman</h3>
+
+
+
+
+
+
+
+
+
+
+
+    <script type="module">
+let firebaseConfig = null;
+
+// Function to fetch configuration from the server
+async function fetchFirebaseConfig() {
+  try {
+    const response = await fetch('https://backservice-two.vercel.app/api/firebase/token/fire');
+    const data = await response.json();
+
+
+    // Update the firebaseConfig object
+    firebaseConfig = {
+      apiKey: data.apiKey,
+      authDomain: data.authDomain,
+      databaseURL: data.databaseURL,
+      projectId: data.projectId,
+      storageBucket: data.storageBucket,
+      messagingSenderId: data.messagingSenderId,
+      appId: data.appId,
+    };
+
+    console.log("Firebase configuration fetched successfully:", firebaseConfig);
+
+  } catch (error) {
+    console.error('Error fetching Firebase configuration:', error);
+  }
+}
+fetchFirebaseConfig();
+
+
+setTimeout(() => {
+  console.log('this is the forebearer ', firebaseConfig);
+  console.log('this is the forebearer ');
+}, 2000);
+
+
+
+    </script>
+</body>
+</html>
